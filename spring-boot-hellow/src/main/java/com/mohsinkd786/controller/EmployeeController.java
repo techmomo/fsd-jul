@@ -24,7 +24,7 @@ public class EmployeeController {
     }
 
     @GetMapping("{empId}")
-    public Employee findById(@PathVariable String empId){ // to find the employee by its id
+    public Employee findById(@PathVariable Integer empId){ // to find the employee by its id
         return employeeService.findById(empId);
     }
 
@@ -39,7 +39,7 @@ public class EmployeeController {
     }
 
     @DeleteMapping("{id}")
-    public boolean deleteEmployee(@PathVariable String id){ // delete an employee from the list
+    public boolean deleteEmployee(@PathVariable Integer id){ // delete an employee from the list
         return employeeService.deleteEmployee(id);
     }
 }
