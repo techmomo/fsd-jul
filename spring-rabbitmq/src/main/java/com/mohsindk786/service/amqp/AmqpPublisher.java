@@ -8,8 +8,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class AmqpPublisher {
 
-    @Autowired
-    private RabbitMqSettings mqSettings;
     private RabbitTemplate rabbitTemplate;
 
     @Autowired
@@ -17,8 +15,8 @@ public class AmqpPublisher {
         this.rabbitTemplate = rabbitTemplate;
     }
 
-    public void publishToExchange(String message){
-        rabbitTemplate.setRoutingKey(mqSettings.getRoutingKey());
-        rabbitTemplate.convertAndSend(mqSettings.getQueue(),message);
+    public void publishToExchange(String routingKey, String queueName , String message){
+        rabbitTemplate.setRoutingKey(routingKey);
+        rabbitTemplate.convertAndSend(queueName,message);
     }
 }

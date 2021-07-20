@@ -25,8 +25,8 @@ public class OrganizationController {
         return organizationService.findOrgs();
     }
 
-    @PostMapping
-    public ResponseEntity<Organization> createOrg(@RequestBody Organization organization){
-        return ResponseEntity.ok(organizationService.createOrganization(organization));
-    }
+//    @PostMapping
+//    public ResponseEntity<Organization> createOrg(@RequestBody Organization organization){
+//        return ResponseEntity.ok(organizationService.createOrganization(organization));
+//    }
 }

@@ -28,4 +28,19 @@ public class RabbitConfig {
     public Binding binding(){
         return BindingBuilder.bind(queue()).to(directExchange()).with(mqSettings.getRoutingKey());
     }
+
+    @Bean
+    public DirectExchange orgExchange(){
+        return new DirectExchange(mqSettings.getOrgExchange());
+    }
+
+    @Bean
+    public Queue orgQueue(){
+        return new Queue(mqSettings.getOrgQueue());
+    }
+
+    @Bean
+    public Binding orgBinding(){
+        return BindingBuilder.bind(orgQueue()).to(orgExchange()).with(mqSettings.getOrgRoutingKey());
+    }
 }

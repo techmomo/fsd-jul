@@ -1,10 +1,12 @@
 package com.mohsinkd786.entity;
 
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.*;
 
 
+@ToString
 @Data
 @Entity
 public class Organization {

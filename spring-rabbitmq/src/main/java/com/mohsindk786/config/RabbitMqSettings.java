@@ -1,8 +1,10 @@
 package com.mohsindk786.config;
 
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 
+@Data
 @Configuration
 public class RabbitMqSettings {
 
@@ -13,27 +15,11 @@ public class RabbitMqSettings {
     @Value("${rabbitmq.routingKey}")
     private String routingKey;
 
-    public String getQueue() {
-        return queue;
-    }
+    @Value("${rabbitmq.org.queue}")
+    private String orgQueue;
+    @Value("${rabbitmq.org.exchange}")
+    private String orgExchange;
+    @Value("${rabbitmq.org.routingKey}")
+    private String orgRoutingKey;
 
-    public void setQueue(String queue) {
-        this.queue = queue;
-    }
-
-    public String getExchange() {
-        return exchange;
-    }
-
-    public void setExchange(String exchange) {
-        this.exchange = exchange;
-    }
-
-    public String getRoutingKey() {
-        return routingKey;
-    }
-
-    public void setRoutingKey(String routingKey) {
-        this.routingKey = routingKey;
-    }
 }
