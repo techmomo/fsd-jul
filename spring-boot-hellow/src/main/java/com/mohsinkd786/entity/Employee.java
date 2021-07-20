@@ -4,10 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,4 +17,8 @@ public class Employee {
     public int eId;
     @Column(name = "ename")
     private String name;
+
+    @ManyToOne
+    @JoinColumn(name = "id",nullable = false)
+    private Project project;
 }
