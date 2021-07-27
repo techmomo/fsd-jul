@@ -1,6 +1,6 @@
 export interface UserDto{
     id:number,
     name:string,
-    age:number,
+    dob:Date,
     salary?:number
 }

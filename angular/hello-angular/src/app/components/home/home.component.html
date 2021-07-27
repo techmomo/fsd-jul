@@ -2,4 +2,5 @@
     {{message}}
 </h2>
 
-<app-user></app-user>
+<!-- send numbers array from parent(home) to child(user)-->
+<app-user [data]="nums" (usrs)="userHandler($event)"></app-user>
