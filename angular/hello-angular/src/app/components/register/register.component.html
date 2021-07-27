@@ -1,0 +1,36 @@
+<fieldset>
+    <legend>User Registration</legend>
+    <form [formGroup]="registerForm" (submit)="registerUser()">
+
+        <div>
+            <label>ID:</label>
+            <input type="number" formControlName="id"/>
+            <span *ngIf="registerFormControls.id.touched && registerFormControls.id.errors?.required">
+                ID is required
+            </span>
+        </div>
+        <div>
+            <label>Name:</label>
+            <input type="text" formControlName="name"/>
+            <span *ngIf="registerFormControls.name.touched && registerFormControls.name.errors?.required">
+                Name is required
+            </span>
+        </div>
+        <div>
+            <label>DOB:</label>
+            <input type="date" formControlName="dob"/>
+            <span *ngIf="registerFormControls.dob.touched && registerFormControls.dob.errors?.required">
+                DOB is required
+            </span>
+        </div>
+        <div>
+            <label>Salary:</label>
+            <input type="number" formControlName="salary"/>
+            <span *ngIf="(registerFormControls.salary.touched && registerFormControls.salary.errors?.min) || (registerFormControls.salary.touched && registerFormControls.salary.errors?.max)">
+                Salary should be within 500 - 2500
+            </span>
+        </div>
+        <button type="submit">Register</button>
+
+    </form>
+</fieldset>

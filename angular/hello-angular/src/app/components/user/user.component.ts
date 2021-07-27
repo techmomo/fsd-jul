@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { UserDto } from 'src/app/dtos/user.dto';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-user',
@@ -10,7 +11,8 @@ export class UserComponent implements OnInit {
 
   phoneNumber:string;
   users:UserDto[];
-  constructor() { }
+  // inject the service instance
+  constructor(private service:UserService) { }
 
   // get data from parent component
   @Input() data:number[];
@@ -21,26 +23,7 @@ export class UserComponent implements OnInit {
 
     console.log(this.data);
     // add values to the array
-    this.users=[
-      {
-        id: 1,
-        name: 'User1',
-        dob: new Date("01/01/1990"),
-        salary: 1000
-      },
-      {
-        id: 2,
-        name: 'User2',
-        dob: new Date("10/10/2000"),
-        salary: 900
-      },
-      {
-        id: 3,
-        name: 'User3',
-        dob: new Date("02/02/1988"),
-        salary: 1200
-      }
-    ];
+    this.users= this.service.getUsers();
   }
   // get the value from text box via onInput Event
   getPhone(phone:Event){
