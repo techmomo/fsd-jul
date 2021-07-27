@@ -1,0 +1,28 @@
+<!-- {{users | json }} -->
+
+<table>
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                NAME
+            </th>
+            <th>
+                AGE
+            </th>
+            <th>
+                SALARY
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let u of users">
+            <td>{{u.id}}</td>
+            <td>{{u.name}}</td>
+            <td>{{u.age}}</td>
+            <td>{{u.salary}}</td>
+        </tr>
+    </tbody>
+</table>

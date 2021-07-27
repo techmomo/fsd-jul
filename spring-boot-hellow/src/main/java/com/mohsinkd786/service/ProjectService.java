@@ -29,6 +29,10 @@ public class ProjectService {
         return savedEntity;
     }
 
+    public List<Project> findProjectsByNameLike(String name){
+        return repository.findProjectsByNameAndOrderByBudget(name);
+    }
+
 //    public Employee findById(Integer id){
 //        Optional<Employee> optionalEmployee=  repository.findById(id);
 //        return optionalEmployee.isPresent() ? optionalEmployee.get() : null;

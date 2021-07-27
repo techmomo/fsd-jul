@@ -11,16 +11,16 @@ import java.util.List;
 @RestController
 public class ProjectController {
 
-    private ProjectService ProjectService;
+    private ProjectService projectService;
 
     @Autowired
-    public ProjectController(ProjectService ProjectService){
-        this.ProjectService = ProjectService;
+    public ProjectController(ProjectService projectService){
+        this.projectService = projectService;
     }
 
     @GetMapping
     public List<Project> findProjects(){ // to get all Projects
-        return  ProjectService.findAll();
+        return  projectService.findAll();
     }
 
 //    @GetMapping("{empId}")
@@ -30,7 +30,7 @@ public class ProjectController {
 
     @PostMapping
     public Project createProject(@RequestBody Project Project){ // create a new Project & add it to the list
-        return ProjectService.createProject(Project);
+        return projectService.createProject(Project);
     }
 
 //    @PutMapping
@@ -42,4 +42,10 @@ public class ProjectController {
 //    public boolean deleteProject(@PathVariable Integer id){ // delete an Project from the list
 //        return ProjectService.deleteProject(id);
 //    }
+
+
+    @GetMapping("{name}")
+    public List<Project> findByProjectsByName(@PathVariable String name){
+        return projectService.findProjectsByNameLike(name);
+    }
 }
