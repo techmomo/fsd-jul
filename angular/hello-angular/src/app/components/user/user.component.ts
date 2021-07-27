@@ -10,7 +10,7 @@ import { UserService } from 'src/app/services/user.service';
 export class UserComponent implements OnInit {
 
   phoneNumber:string;
-  users:UserDto[];
+  users:UserDto[]=[];
   // inject the service instance
   constructor(private service:UserService) { }
 
@@ -20,10 +20,16 @@ export class UserComponent implements OnInit {
   @Output() usrs:EventEmitter<UserDto[]> = new EventEmitter();
 
   ngOnInit() {
-
     console.log(this.data);
     // add values to the array
-    this.users= this.service.getUsers();
+    //this.users= this.service.getUsers();
+    this
+      .service
+      .getUsers()
+      .subscribe(usrs=>{
+        this.users = usrs;
+    });
+
   }
   // get the value from text box via onInput Event
   getPhone(phone:Event){
