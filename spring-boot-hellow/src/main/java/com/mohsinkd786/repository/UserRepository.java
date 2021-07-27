@@ -1,4 +1,7 @@
 package com.mohsinkd786.repository;
 
-public class UserRepository {
+import com.mohsinkd786.entity.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface UserRepository extends JpaRepository<User,Integer> {
 }
