@@ -1,36 +1,41 @@
-<fieldset>
-    <legend>User Registration</legend>
-    <form [formGroup]="registerForm" (submit)="registerUser()">
+<form [formGroup]="registerForm" (submit)="registerUser()">
 
         <div>
             <label>ID:</label>
-            <input type="number" formControlName="id"/>
+            <input type="number" formControlName="id" class="form-control"/>
             <span *ngIf="registerFormControls.id.touched && registerFormControls.id.errors?.required">
-                ID is required
+                <div class="alert alert-danger">
+                    ID is required
+                </div>
             </span>
         </div>
         <div>
             <label>Name:</label>
-            <input type="text" formControlName="name"/>
+            <input type="text" formControlName="name" class="form-control"/>
             <span *ngIf="registerFormControls.name.touched && registerFormControls.name.errors?.required">
-                Name is required
+                <div class="alert alert-danger">
+                    Name is required
+                </div>
             </span>
         </div>
         <div>
             <label>DOB:</label>
-            <input type="date" formControlName="dob"/>
+            <input type="date" formControlName="dob" class="form-control"/>
             <span *ngIf="registerFormControls.dob.touched && registerFormControls.dob.errors?.required">
-                DOB is required
+                <div class="alert alert-danger">
+                    DOB is required
+                </div>
             </span>
         </div>
         <div>
             <label>Salary:</label>
-            <input type="number" formControlName="salary"/>
+            <input type="number" formControlName="salary" class="form-control"/>
             <span *ngIf="(registerFormControls.salary.touched && registerFormControls.salary.errors?.min) || (registerFormControls.salary.touched && registerFormControls.salary.errors?.max)">
-                Salary should be within 500 - 2500
+                <div class="alert alert-danger">
+                    Salary should be within 500 - 2500
+                </div>
             </span>
         </div>
-        <button type="submit">Register</button>
+        <button type="submit" class="btn btn-primary">Register</button>
 
     </form>
-</fieldset>

@@ -1,11 +1,12 @@
 <!-- {{users | json }} -->
 
 <div *ngIf="users.length > 0; else noUsers">
-    <table>
+    <table class="table table-dark table-hover table-striped table-bordered caption-top">
+        <caption>List of Users</caption>
         <thead>
             <tr>
                 <th>
-                    ID
+                    #
                 </th>
                 <th>
                     NAME
@@ -16,7 +17,7 @@
                 <th>
                     SALARY
                 </th>
-                <th></th>
+                <th>ACTIONs</th>
             </tr>
         </thead>
         <tbody>
@@ -27,7 +28,7 @@
                 <td>{{u.dob | age}}</td>
                 <td>{{u.salary | currency : "GBP"}}</td>
                 <td>
-                    <a routerLink="/user/info/{{u.id}}">View Details</a>
+                    <a routerLink="/user/info/{{u.id}}" class="link-success">View Details</a>
                 </td>
             </tr>
         </tbody>
@@ -40,10 +41,10 @@
 </ng-template>
 <div>
     <!-- property binding -->
-    <input type="text" name="phone" [value]="phoneNumber" (input)="getPhone($event)" />
+    <input type="text" name="phone" [value]="phoneNumber" (input)="getPhone($event)" class="form-control"/>
 </div>
 
 <div>
     <!-- event binding -->
-    <button (click)="sendUsers()">Send Users</button>
+    <button (click)="sendUsers()" class="btn btn-secondary">Send Users</button>
 </div>
