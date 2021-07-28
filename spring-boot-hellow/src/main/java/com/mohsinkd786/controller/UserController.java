@@ -25,4 +25,8 @@ public class UserController {
     public User save(@RequestBody User user){
         return service.save(user);
     }
+    @GetMapping("{id}")
+    public User findById(@PathVariable int id){
+        return service.findById(id);
+    }
 }
