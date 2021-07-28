@@ -38,6 +38,11 @@ export class UserService {
       .get('http://localhost:9000/users');
   }
 
+  getUserInfo(id:number): Observable<any>{
+    return this
+      .http
+      .get(`http://localhost:9000/users/${id}`);
+  }
   addUser(user:UserDto):UserDto[]{
     // save user on server
     this

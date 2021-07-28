@@ -16,14 +16,19 @@
                 <th>
                     SALARY
                 </th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let u of users">
-                <td>{{u.id}}</td>
+                <td>
+                    {{u.id}}</td>
                 <td>{{u.name}}</td>
                 <td>{{u.dob | age}}</td>
                 <td>{{u.salary | currency : "GBP"}}</td>
+                <td>
+                    <a routerLink="/user/info/{{u.id}}">View Details</a>
+                </td>
             </tr>
         </tbody>
     </table>
