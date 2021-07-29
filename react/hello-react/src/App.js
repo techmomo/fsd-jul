@@ -1,23 +1,29 @@
-import React, { useState } from 'react';
-import Home from './components/Home';
-import User from './components/User';
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Main from "./components/Main";
+import Aboutus from "./components/Aboutus";
+import Contactus from "./components/Contactus";
+import TopMenu from "./components/TopMenu";
+import UsAboutus from "./components/UsAboutus";
 
 function App() {
-  const [message,setMessage] = useState('');
-  let _msg = React.createRef();
-
-  function handleMessage(){
-    //console.log(_msg.current.value);
-    setMessage(_msg.current.value);
-  }
   return (
-    <div>
-      <h3>Hello React</h3>
-      <input type='text' name='msg' ref={_msg} />
-      <button onClick={handleMessage}> Click Me!</button>
-      <Home message={message}></Home>
-      <User/>
-    </div>
+    <BrowserRouter>
+      <TopMenu/>
+      <Switch>
+        <Route path="/home">
+          <Main/>
+        </Route>
+        <Route path="/aboutus/us">
+          <UsAboutus/>
+        </Route>
+        <Route path="/aboutus/:id/:name">
+          <Aboutus/>
+        </Route>
+        <Route path="/contactus">
+          <Contactus/>
+        </Route>
+      </Switch>
+    </BrowserRouter>
   );
 }
 
